@@ -2,26 +2,137 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+     scrollbar-width: thin;
+     scrollbar-color: #106ead transparent;
+     scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+     width: 0.25em;
+     height: 0.25em;
+}
+
+::-webkit-scrollbar-thumb {
+     background: #106ead;
+     border-radius: 10em;
+}
+
+::-webkit-scrollbar-track {
+     background: transparent;
+}
+
+*:disabled {
+     cursor: not-allowed;
+}
+
+html,
+body {
+     padding: 0;
+     margin: 0;
+     /* font-family: "Montserrat", sans-serif; */
+     font-family: "Rubik", sans-serif !important;
+}
+
+body.loading {
+     overflow: hidden;
+     height: 100vh;
+}
+
+a {
+     color: inherit;
+     text-decoration: none;
+}
+
+* {
+     box-sizing: border-box;
+     scrollbar-width: thin;
+     scrollbar-color: #106ead transparent;
+     scroll-behavior: smooth;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+     html {
+          color-scheme: dark;
+     }
+
+     body {
+          color: black;
+          background: white !important;
+     }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.main-background-image {
+     background: linear-gradient(90deg, #fef9fd 33%, #ffffff 49%, #fef9fd 65%);
+}
+
+@layer components {
+     .main-container {
+          @apply container mx-auto px-6 md: px-8;
+     }
+
+     .btn-theme {
+          @apply px-4 py-2 bg-theme text-white font-semibold rounded-md flex gap-2 items-center hover: scale-105 transition-all ease-in-out duration-300;
+     }
+
+     .custom-button {
+          @apply px-3 py-1 rounded-sm flex gap-2 items-center hover: scale-105 transition-all ease-in-out duration-300 cursor-pointer shadow-md text-xs tracking-wide font-semibold text-white;
+     }
+
+     .shadow-sleek {
+          @apply shadow-[rgba(13, _38, _76, _0.19)_0px_9px_20px];
+     }
+
+     .shadow-next {
+          @apply shadow-[0_8px_30px_rgb(0, 0, 0, 0.12)];
+     }
+
+     .shadow-jubilation {
+          @apply shadow-[rgba(0, _0, _0, _0.24)_0px_3px_8px];
+     }
+}
+
+.highlight-menu {
+     background: linear-gradient(#0b8dbf, #0b58f3) !important;
+     box-shadow: #45aaee8f 1px 1px 9px 0px !important;
+}
+
+.round-size {
+     border-radius: 0px 0px 58px 58px;
+}
+
+.draw-bar {
+     position: absolute;
+     transform: translateY(-150%);
+     display: flex;
+     justify-content: center;
+     left: 0%;
+     width: 100%;
+     transition: ease-in-out 800ms;
+     overflow-y: auto;
+     /* position: fixed; */
+     z-index: 1;
+     display: none;
+}
+
+.draw-bar.active {
+     transform: translateY(0%);
+}
+
+.dashboard-card-shadow {
+     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.css-1hv8oq8-MuiStepLabel-label {
+     font-size: auto !important;
+}
+
+@media (max-width: 500px) {
+     .css-1hv8oq8-MuiStepLabel-label {
+          font-size: 9px !important;
+     }
+
+     .css-2fdkz6 {
+          font-size: 9px !important;
+     }
 }
