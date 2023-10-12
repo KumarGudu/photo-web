@@ -14,6 +14,7 @@ export default function Home() {
       <Team />
       <Pricing />
       <Testimonial />
+      {/* alls */}
     </>
   )
 }
